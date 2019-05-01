@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Igra vesala</title>
+    <style>
+        body {
+            background-image: url("games.png");
+            background-size: 100% 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            text-align: center;
+            font-family: fantasy;
+
+        }
+        #skrivena_rec{
+            background-color: white;
+            width: 60%;
+            margin-left: auto;
+            margin-right: auto;
+            display: flex;
+            flex-flow: row nowrap;
+            justify-content: center;
+            padding: 5px;
+            border: solid red 3px;
+            border-radius: 20px;
+        }
+        .slova{
+            width: 30px;
+            height: 40px;
+            background-color: white;
+            border-bottom: solid black 4px;
+            margin: 5px;
+            padding-top: 10px;
+            text-align: center;
+            font-size: 30px;
+        }
+        #inputi{
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content:space-between;
+            width: 300px;
+            height: 200px;
+            margin-top: 10px;
+            margin-left: auto;
+            margin-right: auto;
+        
+        }
+        .input{
+            height: 40px;
+            width: 300px;
+            border: solid red 3px;
+            border-radius: 10px;
+        
+        }
+        #koriscena{
+            height: 40px;
+            width: 300px;
+            border: solid red 3px;
+            border-radius: 10px;
+            background-color: white;
+            text-align: center;
+            padding-top: 5px;
+            font-size: 30px;
+            
+        }
+        #brojac{
+            height: 40px;
+            width: 60px;
+            border: solid red 3px;
+            border-radius: 10px;
+            background-color: white;
+            text-align: center;
+        }
+        #obavestenje{
+            width: 500px;
+            height: 100px;
+            text-align: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 20px;
+            font-size: 40px;
+        }
+        #obavestenje_txt{
+            padding: 20px;
+        }
+        
+        
+    </style>
+</head>
+
+<body>
+    <div id="skrivena_rec">
+
+    </div>
+    <form id="inputi">
+        <input type="text" class="input" id="unos" placeholder="unesite slovo">
+        <input type="text" class="input" id="konacno" placeholder="Probajte konacno">
+        <div id="koriscena">
+            <p id="koriscena_slova"></p>
+        </div>
+        <div id="brojac">
+            <p id="br_brojac"></p>
+        </div>
+
+    </form>
+    <div id="obavestenje">
+        <p id="obavestenje_txt"></p>
+    </div>
+
+    <script>
+        var rech = prompt("unesite rec za pogadjanje");
+        var brojac = 10;
+        var brojacTacnih=0;
+
+        document.getElementById("br_brojac").innerText = brojac;
+        var brojac_tacno = 0;
+        function brojPokusaja() {
+            if (brojac > 0) {
+                brojac--;
+                document.getElementById("br_brojac").innerText = brojac;
+            }
+
+
+        }
+        setTimeout(() => {
+            brojPokusaja
+        }, 2000);
+
+        for (i in rech) {
+            var slovo = document.createElement("div");
+            slovo.setAttribute("class", "slova");
+            document.getElementById("skrivena_rec").appendChild(slovo);
+
+        }
+
+
+        function showAlert(text,success) {
+            if (!success) {
+                document.getElementById("brojac").style.backgroundColor = "red";
+                document.getElementById("obavestenje").style.backgroundColor = "red";
+                document.getElementById("obavestenje_txt").innerHTML = text;
+            }
+            else{
+                document.getElementById("obavestenje").style.backgroundColor = "green";
+                document.getElementById("obavestenje_txt").innerHTML = text;
+            }
+
+        }
+        document.getElementById("unos").addEventListener("input", function (event) {
+            let unetoSlovo = event.data;
+            let uneto = [];
+            var divovi_slova = document.querySelectorAll(".slova");
+
+            if (brojac > 0) {
+                for (i in rech) {
+                    
+                    let slovoUPocetnojReci= rech[i];
+                    if (unetoSlovo.toUpperCase() === slovoUPocetnojReci.toUpperCase()) {
+                        if(divovi_slova[i].innerText.toUpperCase()===unetoSlovo.toUpperCase()){
+                            console.log(`Slovo ${unetoSlovo.toUpperCase()} je vec uneto`);
+                            this.value = "";
+                            showAlert("OVO SLOVO JE VEC UNETO",false);
+
+                        }
+                        else {
+                            console.log('Dodato je novo slovo u rec: ',unetoSlovo);
+                            divovi_slova[i].innerText = unetoSlovo.toUpperCase();   
+                            this.value = "";
+                            uneto.push(unetoSlovo);
+                            showAlert("BRAVO",true);
+                            brojacTacnih++;
+                        }
+                    }
+                }
+
+                if(brojacTacnih===rech.length){
+                    showAlert('POBEDILI STE',true);
+                    document.getElementById("br_brojac").innerText = 0;
+                    document.getElementById("unos").disabled = true;
+                    document.getElementById("konacno").disabled = true;
+
+                }
+
+                if(!rech.includes(unetoSlovo)){
+                    this.value = "";
+                    var text = document.getElementById('koriscena').innerText;
+                    document.getElementById("koriscena").innerText+=unetoSlovo.toUpperCase();
+                    showAlert("NE POSTOJI SLOVO U RECI",false);
+                    brojPokusaja();
+                }
+         
+            
+            }
+            else{
+                this.value='';
+                showAlert('GAME OVER ',false);
+                document.getElementById("unos").disabled = true;
+                document.getElementById("konacno").disabled = true;
+
+
+            }
+
+
+        });
+        document.getElementById("konacno").addEventListener("change", function (event) {
+            this.setAttribute("placeholder", "pokusajte konacno");
+            let text = event.data;
+            if (brojac > 0) {
+                brojPokusaja();
+                var divovi_slova = document.querySelectorAll(".slova");
+                if (text === rech) {
+                    showAlert('POBEDILI STE',true);
+                    }
+                    else {
+                        brojPokusaja();
+                        showAlert('PROMASILI STE REC',false);
+                        this.value='';
+                    }
+                }
+                else{
+                    showAlert('GAME OVER',false);
+                }
+               
+                
+            
+
+        });
+
+
+
+
+
+    </script>
+
+
+</body>
+
+</html>

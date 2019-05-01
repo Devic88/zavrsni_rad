@@ -1,0 +1,128 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.game-container {
+    background: lightblue;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.memory-game {
+    width: 50%;
+    min-width: 500px;
+    height: 80%;
+    min-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    background: rgb(228, 222, 205);
+}
+
+.memory-card {
+    width: calc(25% - 10px);
+    height: calc(25% - 10px);
+    position: relative;
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    position: absolute;
+    border-radius: 5px;
+    background: lightblue;
+    backface-visibility: hidden;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+.newGameBtn {
+    outline: none;
+    text-decoration: none;
+    background: rgb(57, 57, 182);
+    border-radius: 12px;
+    font-size: 22px;
+    width: 180px;
+    min-width: fit-content;
+    padding: 15px 15px 15px 15px;
+    height: 60px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: inset 0 0 15px 2px white;
+    min-width: fit-content;
+    position: fixed;
+    top: 5;
+    left: 25;
+    z-index: 10001;
+}
+
+.newGameBtn:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 25px 8px white;
+}
+
+.stopGameBtn {
+    outline: none;
+    text-decoration: none;
+    background: red;
+    border-radius: 12px;
+    font-size: 22px;
+    width: 180px;
+    min-width: fit-content;
+    padding: 15px 15px 15px 15px;
+    height: 60px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: inset 0 0 15px 2px white;
+    min-width: fit-content;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 10001;
+    visibility: hidden;
+}
+
+.timer {
+    font-size: 50px;
+    font-weight: 800;
+    position: absolute;
+    top: 0;
+    color: black;
+}
