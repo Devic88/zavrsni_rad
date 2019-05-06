@@ -12,12 +12,16 @@
     <canvas id="backgroundAnimation"></canvas>
     <h1 class="title">Izaberite igru</h1>
     <nav class="nav">
-      <a href="./memory-game.html" target="_blank" class="choose-game-btn"
-        >Igra memorije</a
-      >
-      <a href="./vesala2.html" target="_blank" class="choose-game-btn"
-        >Pogadjanje reci</a
-      >
+      <div class="choose-game-container">
+        <img draggable="false" id="memory" src="./img/memory.png" alt="poz" />
+        <a href="./memory-game.html" class="choose-game-btn">Igra memorije</a>
+      </div>
+      <div class="choose-game-container">
+        <img draggable="false" id="memory" src="./img/memory.png" alt="poz" />
+        <a href="./pogodi-rec.html" class="choose-game-btn"
+          >Pogadjanje reci</a
+        >
+      </div>
     </nav>
     <script type="text/javascript">
       var canvas = document.querySelector("canvas");

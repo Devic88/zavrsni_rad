@@ -16,11 +16,13 @@
             font-family: fantasy;
 
         }
-        #skrivena_rec{
+
+        #skrivena_rec {
             background-color: white;
             width: 60%;
             margin-left: auto;
             margin-right: auto;
+            margin-top: 10px;
             display: flex;
             flex-flow: row nowrap;
             justify-content: center;
@@ -28,7 +30,8 @@
             border: solid red 3px;
             border-radius: 20px;
         }
-        .slova{
+
+        .slova {
             width: 30px;
             height: 40px;
             background-color: white;
@@ -38,25 +41,18 @@
             text-align: center;
             font-size: 30px;
         }
-        #inputi{
-            display: flex;
-            flex-flow: column nowrap;
-            justify-content:space-between;
-            width: 300px;
-            height: 200px;
-            margin-top: 10px;
-            margin-left: auto;
-            margin-right: auto;
+
         
-        }
-        .input{
+
+        .input {
             height: 40px;
             width: 300px;
             border: solid red 3px;
             border-radius: 10px;
-        
+
         }
-        #koriscena{
+
+        #koriscena {
             height: 40px;
             width: 300px;
             border: solid red 3px;
@@ -65,9 +61,10 @@
             text-align: center;
             padding-top: 5px;
             font-size: 30px;
-            
+
         }
-        #brojac{
+
+        #brojac {
             height: 40px;
             width: 60px;
             border: solid red 3px;
@@ -75,46 +72,79 @@
             background-color: white;
             text-align: center;
         }
-        #obavestenje{
-            width: 500px;
-            height: 100px;
+
+        #obavestenje {
+            width: 400px;
+            height: 70px;
             text-align: center;
             margin-left: auto;
             margin-right: auto;
-            margin-top: 20px;
-            font-size: 40px;
+            margin-top: 10px;
+            font-size: 30px;
         }
-        #obavestenje_txt{
+
+        #obavestenje_txt {
             padding: 20px;
         }
-        
+
+        #pozadina {
+            width: 700px;
+            height: 370px;
+            background-image: url("./img/soba.png");
+            background-size: cover;
+            
+
+        }
+        #inputi {
+            display: flex;
+            flex-flow: column nowrap;
+            justify-content: space-between;
+            width: 300px;
+            height: 300px;
+            margin: 30px;
+           
+            
+            
+
+        }
+        #omotac{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+        }
         
     </style>
 </head>
 
 <body>
-    <div id="skrivena_rec">
+    <div id="omotac">
+        <div id="pozadina"></div>
 
-    </div>
-    <form id="inputi">
-        <input type="text" class="input" id="unos" placeholder="unesite slovo">
-        <input type="text" class="input" id="konacno" placeholder="Probajte konacno">
-        <div id="koriscena">
-            <p id="koriscena_slova"></p>
-        </div>
-        <div id="brojac">
-            <p id="br_brojac"></p>
-        </div>
+        <form id="inputi">
+                <input type="text" class="input" id="unos" placeholder="unesite slovo">
+                <input type="text" class="input" id="konacno" placeholder="Probajte konacno">
+                <div id="koriscena">
+                    <p id="koriscena_slova"></p>
+                </div>
+                <div id="brojac">
+                    <p id="br_brojac"></p>
+                </div>
+    
+            </form>
 
-    </form>
-    <div id="obavestenje">
-        <p id="obavestenje_txt"></p>
-    </div>
+        </div>
+        
+        <div id="skrivena_rec"></div>
+        <div id="obavestenje">
+            <p id="obavestenje_txt"></p>
+        </div>
+    
+
 
     <script>
         var rech = prompt("unesite rec za pogadjanje");
         var brojac = 10;
-        var brojacTacnih=0;
+        var brojacTacnih = 0;
 
         document.getElementById("br_brojac").innerText = brojac;
         var brojac_tacno = 0;
@@ -138,13 +168,13 @@
         }
 
 
-        function showAlert(text,success) {
+        function showAlert(text, success) {
             if (!success) {
                 document.getElementById("brojac").style.backgroundColor = "red";
                 document.getElementById("obavestenje").style.backgroundColor = "red";
                 document.getElementById("obavestenje_txt").innerHTML = text;
             }
-            else{
+            else {
                 document.getElementById("obavestenje").style.backgroundColor = "green";
                 document.getElementById("obavestenje_txt").innerHTML = text;
             }
@@ -157,47 +187,47 @@
 
             if (brojac > 0) {
                 for (i in rech) {
-                    
-                    let slovoUPocetnojReci= rech[i];
+
+                    let slovoUPocetnojReci = rech[i];
                     if (unetoSlovo.toUpperCase() === slovoUPocetnojReci.toUpperCase()) {
-                        if(divovi_slova[i].innerText.toUpperCase()===unetoSlovo.toUpperCase()){
+                        if (divovi_slova[i].innerText.toUpperCase() === unetoSlovo.toUpperCase()) {
                             console.log(`Slovo ${unetoSlovo.toUpperCase()} je vec uneto`);
                             this.value = "";
-                            showAlert("OVO SLOVO JE VEC UNETO",false);
+                            showAlert("OVO SLOVO JE VEC UNETO", false);
 
                         }
                         else {
-                            console.log('Dodato je novo slovo u rec: ',unetoSlovo);
-                            divovi_slova[i].innerText = unetoSlovo.toUpperCase();   
+                            console.log('Dodato je novo slovo u rec: ', unetoSlovo);
+                            divovi_slova[i].innerText = unetoSlovo.toUpperCase();
                             this.value = "";
                             uneto.push(unetoSlovo);
-                            showAlert("BRAVO",true);
+                            showAlert("BRAVO", true);
                             brojacTacnih++;
                         }
                     }
                 }
 
-                if(brojacTacnih===rech.length){
-                    showAlert('POBEDILI STE',true);
+                if (brojacTacnih === rech.length) {
+                    showAlert('POBEDILI STE', true);
                     document.getElementById("br_brojac").innerText = 0;
                     document.getElementById("unos").disabled = true;
                     document.getElementById("konacno").disabled = true;
 
                 }
 
-                if(!rech.includes(unetoSlovo)){
+                if (!rech.includes(unetoSlovo)) {
                     this.value = "";
                     var text = document.getElementById('koriscena').innerText;
-                    document.getElementById("koriscena").innerText+=unetoSlovo.toUpperCase();
-                    showAlert("NE POSTOJI SLOVO U RECI",false);
+                    document.getElementById("koriscena").innerText += unetoSlovo.toUpperCase();
+                    showAlert("NE POSTOJI SLOVO U RECI", false);
                     brojPokusaja();
                 }
-         
-            
+
+
             }
-            else{
-                this.value='';
-                showAlert('GAME OVER ',false);
+            else {
+                this.value = '';
+                showAlert('GAME OVER ', false);
                 document.getElementById("unos").disabled = true;
                 document.getElementById("konacno").disabled = true;
 
@@ -213,20 +243,20 @@
                 brojPokusaja();
                 var divovi_slova = document.querySelectorAll(".slova");
                 if (text === rech) {
-                    showAlert('POBEDILI STE',true);
-                    }
-                    else {
-                        brojPokusaja();
-                        showAlert('PROMASILI STE REC',false);
-                        this.value='';
-                    }
+                    showAlert('POBEDILI STE', true);
                 }
-                else{
-                    showAlert('GAME OVER',false);
+                else {
+                    brojPokusaja();
+                    showAlert('PROMASILI STE REC', false);
+                    this.value = '';
                 }
-               
-                
-            
+            }
+            else {
+                showAlert('GAME OVER', false);
+            }
+
+
+
 
         });
 

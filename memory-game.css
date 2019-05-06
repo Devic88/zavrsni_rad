@@ -126,3 +126,79 @@ body {
     top: 0;
     color: black;
 }
+
+#back-btn {
+    text-decoration: none;
+    font-size: 28px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 25px;
+    margin-left: 25px;
+    border: 2px solid grey;
+    border-radius: 8px;
+}
+
+#back-btn>i {
+    margin-right: 7px;
+}
+
+.score-input-field {
+    position: fixed;
+    top: 5;
+    left: 25;
+    z-index: 10001;
+    font-size: 28px;
+    width: 300px;
+    visibility: hidden;
+}
+
+.highscore-table {
+    font-size: 18px;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    margin-top: 25px;
+    margin-left: 25px;
+    border-radius: 8px;
+    color: black;
+    font-weight: 700;
+}
+
+.tbl-row>td {
+    width: 120px !important;
+    overflow: auto !important;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-content: center;
+    max-width: 120px;
+    height: 40px;
+}
+
+.tbl-row>th {
+    width: 120px !important;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-content: center;
+    height: 40px;
+}
+
+.tbl-naziv-kolone {
+    background: grey;
+    height: 40px;
+}
+
+.delete-scores{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin-bottom: 25px;
+    margin-left: 25px;
+    font-size: 28px;
+    border-radius: 8px;
+    background:blue;
+}

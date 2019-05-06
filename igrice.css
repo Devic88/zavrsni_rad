@@ -11,7 +11,6 @@ body {
     position: relative;
     justify-content: center;
     align-items: center;
-
 }
 
 .nav {
@@ -22,6 +21,12 @@ body {
     justify-content: space-evenly;
     align-items: center;
     justify-items: center;
+}
+
+.choose-game-container {
+    display: inline-flex;
+    align-items: center;
+    flex-direction: column;
 }
 
 .choose-game-btn {
@@ -61,4 +66,9 @@ body {
     top: 0;
     left: 0;
     background-color: black;
+}
+
+#memory {
+    width: 220px;
+    height: 180px;
 }

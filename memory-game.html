@@ -6,13 +6,37 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Memory Game</title>
     <link rel="stylesheet" href="memory-game.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   </head>
 
   <body>
     <div class="game-container">
+      <button class='delete-scores' id='delete-scores-btn' >Obrisi score</button>
+      <a id='back-btn' href='./igrice.html'><i class="fa fa-arrow-circle-left"/></i>Povratak na pocetnu stranu</a>
+      <div class='highscore-table'>
+          <table id='table' class="table table-bordered">
+            <label>Rezultati</label>
+              <thead>
+                <tr class="tbl-row">
+                  <th class='tbl-naziv-kolone'>Pozicija</th>
+                  <th class='tbl-naziv-kolone'>Ime</th>
+                  <th class='tbl-naziv-kolone'>Bodovi</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- <tr class='tbl-row'>
+                  <td>1</td>
+                  <td>adjansdkjlashlkhasdghkhljasdlkhjasdghlkhjsaghlakjsdg</td>
+                  <td>1200</td>
+                </tr> -->
+              </tbody>
+            </table>
+      </div>
       <button class="stopGameBtn" id="stopGameBtn">STOP GAME</button>
-      <div id="timer" class="timer">Welcome</div>
+      <div id="timer" class="timer">Dobrodosli</div>
       <button class="newGameBtn" id="newGameBtn">START NEW GAME</button>
+      <input placeholder="Unesite vase ime..." class='score-input-field' type='text' id='score-input'>
       <div class="memory-game">
         <div class="memory-card" data-framework="lav">
           <img
