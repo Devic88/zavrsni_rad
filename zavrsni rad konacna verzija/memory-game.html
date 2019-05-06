@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Igra memorije</title>
+    <link rel="stylesheet" href="memory-game.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  </head>
+
+  <body>
+    <div class="game-container">
+      <button class='delete-scores' id='delete-scores-btn' >Obriši rezultate</button>
+      <a id='back-btn' href='./igrice.html'><i class="fa fa-arrow-circle-left"/></i>Povratak na početnu stranu</a>
+      <div class='highscore-table'>
+          <table id='table' class="table table-bordered">
+            <label>Rezultati</label>
+              <thead>
+                <tr class="tbl-row">
+                  <th class='tbl-naziv-kolone'>Pozicija</th>
+                  <th class='tbl-naziv-kolone'>Ime</th>
+                  <th class='tbl-naziv-kolone'>Bodovi</th>
+                </tr>
+              </thead>
+              <tbody>
+                
+              </tbody>
+            </table>
+      </div>
+      <button class="stopGameBtn" id="stopGameBtn">STOPIRAJ IGRU</button>
+      <div id="timer" class="timer">IGRA MEMORIJE</div>
+      <button class="newGameBtn" id="newGameBtn">Započni igru</button>
+      <input placeholder="Unesite vase ime..." class='score-input-field' type='text' id='score-input'>
+      <div class="memory-game">
+        <div class="memory-card" data-framework="lav">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/lav.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="lav">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/lav.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="nilski">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/nilski.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="nilski">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/nilski.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="jelen">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/jelen.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="jelen">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/jelen.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="tigar">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/tigar.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="tigar">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/tigar.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="sova">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/sova.png"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="sova">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/sova.png"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="slon">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/slon.png"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="slon">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/slon.png"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="ovca">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/ovca.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="ovca">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/ovca.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="zebra">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/zebra.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+        <div class="memory-card" data-framework="zebra">
+          <img
+            draggable="false"
+            class="front-face"
+            src="./img/zebra.jpg"
+            alt=""
+          />
+          <img draggable="false" class="back-face" src="./img/fun.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="./memory-game.js"></script>
+</html>

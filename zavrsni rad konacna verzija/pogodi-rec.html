@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Pogodi reč</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="pogodi-rec.css" />
+</head>
+
+<body>
+    <img id='imgBackground' src="./img/pitanje.jpg">
+    <a class='back-btn' href='./igrice.html'><i class="fa fa-arrow-circle-left" /></i>Povratak na početnu stranu</a>
+    <h2 id="naslov">Skrivena reč se nalazi na slici, probaj da je pogodiš</h2>
+    <div id="omotac">
+        <div id="pozadina"></div>
+
+        <form id="inputi">
+            <input type="text" class="input" id="unos" placeholder="Unesite slovo">
+            <input type="text" class="input" id="konacno" placeholder="Probajte konačno">
+            <div id="koriscena">
+                <p id="koriscena_slova"></p>
+            </div>
+            <div id="brojac">
+                <p id="br_brojac"></p>
+            </div>
+            
+
+        </form>
+        <button class='nova-rec-btn' id='nova-rec-btn'>Nova reč</button>
+    </div>
+
+    <div id="skrivena_rec"></div>
+    <div id="obavestenje">
+        <p id="obavestenje_txt"></p>
+    </div>
+    <script src='./pogodi-rec.js'></script>
+</body>
+
+</html>

@@ -1,0 +1,226 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    width: 100%;
+}
+
+.game-container {
+    background-image: url("./img/3.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: hard-light;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.memory-game {
+    margin-top: 40px;
+    width: 50%;
+    min-width: 500px;
+    height: 80%;
+    min-height: 500px;
+    display: flex;
+    flex-wrap: wrap;
+    perspective: 1000px;
+    
+}
+
+.memory-card {
+    width: calc(25% - 10px);
+    height: calc(25% - 10px);
+    position: relative;
+    margin: 5px;
+    transform: scale(1);
+    transform-style: preserve-3d;
+    transition: transform .5s;
+}
+
+.memory-card:active {
+    transform: scale(.97);
+    transition: transform .2s;
+}
+
+.front-face, .back-face {
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    position: absolute;
+    border-radius: 5px;
+    background: lightblue;
+    backface-visibility: hidden;
+}
+
+.memory-card.flip {
+    transform: rotateY(180deg);
+}
+
+.front-face {
+    transform: rotateY(180deg);
+}
+
+.newGameBtn {
+    outline: none;
+    text-decoration: none;
+    background: rgb(57, 57, 182);
+    border-radius: 12px;
+    font-size: 22px;
+    width: 180px;
+    min-width: fit-content;
+    padding: 15px 15px 15px 15px;
+    height: 60px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: inset 0 0 15px 2px white;
+    min-width: fit-content;
+    position: fixed;
+    top: 5;
+    left: 25;
+    z-index: 10001;
+}
+
+.newGameBtn:hover {
+    transform: scale(1.2);
+    box-shadow: 0 0 25px 8px white;
+}
+
+.stopGameBtn {
+    outline: none;
+    text-decoration: none;
+    background: red;
+    border-radius: 12px;
+    font-size: 22px;
+    width: 180px;
+    min-width: fit-content;
+    padding: 15px 15px 15px 15px;
+    height: 60px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: inset 0 0 15px 2px white;
+    min-width: fit-content;
+    position: fixed;
+    top: 25px;
+    right: 25px;
+    z-index: 10001;
+    visibility: hidden;
+}
+
+.timer {
+    font-size: 50px;
+    font-weight: 800;
+    position: absolute;
+    top: 0;
+    color:rgb(10, 10, 161);
+    
+}
+
+#back-btn {
+    text-decoration: none;
+    font-size: 22px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 25px;
+    margin-left: 25px;
+    color:rgb(10, 10, 161);
+   
+}
+
+#back-btn>i {
+    margin-right: 7px;
+}
+
+.score-input-field {
+    position: fixed;
+    top: 5;
+    left: 25;
+    z-index: 10001;
+    font-size: 28px;
+    width: 300px;
+    visibility: hidden;
+}
+
+.highscore-table {
+    font-size: 16px;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    margin-top: 25px;
+    margin-left: 25px;
+    border-radius: 8px;
+    color: black;
+    font-weight: 700;
+}
+
+.tbl-row>td {
+    width: 100px !important;
+    overflow: auto !important;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-content: center;
+    max-width: 100px;
+    height: 40px;
+}
+
+.tbl-row>th {
+    width: 100px !important;
+    display: inline-flex;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+    align-content: center;
+    height: 40px;
+}
+
+.tbl-naziv-kolone {
+    background: grey;
+    height: 40px;
+}
+
+.delete-scores{
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    outline: none;
+    text-decoration: none;
+    background: red;
+    border-radius: 12px;
+    font-size: 22px;
+    width: 180px;
+    min-width: fit-content;
+    padding: 15px 15px 15px 15px;
+    height: 60px;
+    color: white;
+    font-weight: 700;
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    box-shadow: inset 0 0 15px 2px white;
+    min-width: fit-content;
+}
+.delete-scores.hover{
+    transform: scale(1.2);
+    box-shadow: 0 0 25px 8px white;
+}
